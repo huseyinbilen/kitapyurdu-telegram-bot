@@ -12,8 +12,13 @@ def mostSeller():
     div = soup.find("div", {"class":"box no-padding"})
     div = div.find_all("div", {"class": "product-cr"})
 
-    for i in div:
-        name = i.find("div", {"class": "name"}).find("span").text
-        print(name)
+    results = []
 
-mostSeller()
+    for index, item in enumerate(div, start=1):
+        name = item.find("div", {"class": "name"}).find("span").text
+        results.append(f"{index}. {name}")
+        # print(f"{index}. {name}")
+    return results
+
+result = mostSeller()
+print(result)
