@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 import logging
 
+import scrapper
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 
 load_dotenv()
@@ -46,11 +47,16 @@ def handle_message(update, context):
     
     # Belirli bir mesaja karşılık verecek bir kontrol yapın
     if message_text == "/CokSatanlar":
-        context.bot.send_message(chat_id=chat_id, text="Çok Satanlarrrrr")
+        results = scrapper.bestSellers()
+        print(results)
+        # results = results.encode('utf-8')
+        context.bot.send_message(chat_id=chat_id, text=results)
     elif message_text == "/YeniCikanlar":
-        context.bot.send_message(chat_id=chat_id, text="Yeni Cikanlarrrr")
+        results = scrapper.newReleases()
+        context.bot.send_message(chat_id=chat_id, text=results)
     elif message_text == "/HaftaninYayinevi":
-        context.bot.send_message(chat_id=chat_id, text="Haftanin Yayineviiiii")
+        results = scrapper.publisherOfTheWeek()
+        context.bot.send_message(chat_id=chat_id, text=results)
     else:
         context.bot.send_message(chat_id=chat_id, text="Anlamadım, tekrar eder misiniz?")
 
