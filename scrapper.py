@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import json
 
+from unidecode import unidecode
+
 
 def bestSellers():
     url = "https://www.kitapyurdu.com/cok-satan-kitaplar/haftalik/1.html"
@@ -16,6 +18,7 @@ def bestSellers():
 
     for index, item in enumerate(div, start=1):
         name = item.find("div", {"class": "name"}).find("span").text
+        name = unidecode(name)
         results.append(f"{index}. {name}")
     return results
 
@@ -32,6 +35,7 @@ def newReleases():
 
     for index, item in enumerate(div, start=1):
         name = item.find("div", {"class": "name"}).find("span").text
+        name = unidecode(name)
         results.append(f"{index}. {name}")
     return results
 
@@ -48,5 +52,8 @@ def publisherOfTheWeek():
 
     for index, item in enumerate(div, start=1):
         name = item.find("div", {"class": "name"}).find("span").text
+        name = unidecode(name)
         results.append(f"{index}. {name}")
     return results
+
+print(bestSellers())
