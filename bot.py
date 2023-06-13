@@ -48,15 +48,16 @@ def handle_message(update, context):
     # Belirli bir mesaja karşılık verecek bir kontrol yapın
     if message_text == "/CokSatanlar":
         results = scrapper.bestSellers()
-        print(results)
-        # results = results.encode('utf-8')
-        context.bot.send_message(chat_id=chat_id, text=results)
+        formatted_results = "\n".join(results)
+        context.bot.send_message(chat_id=chat_id, text=formatted_results)
     elif message_text == "/YeniCikanlar":
         results = scrapper.newReleases()
-        context.bot.send_message(chat_id=chat_id, text=results)
+        formatted_results = "\n".join(results)
+        context.bot.send_message(chat_id=chat_id, text=formatted_results)
     elif message_text == "/HaftaninYayinevi":
         results = scrapper.publisherOfTheWeek()
-        context.bot.send_message(chat_id=chat_id, text=results)
+        formatted_results = "\n".join(results)
+        context.bot.send_message(chat_id=chat_id, text=formatted_results)
     else:
         context.bot.send_message(chat_id=chat_id, text="Anlamadım, tekrar eder misiniz?")
 

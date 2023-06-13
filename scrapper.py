@@ -55,5 +55,3 @@ def publisherOfTheWeek():
         name = unidecode(name)
         results.append(f"{index}. {name}")
     return results
-
-print(bestSellers())
