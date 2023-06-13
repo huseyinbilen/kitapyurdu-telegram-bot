@@ -50,6 +50,3 @@ def publisherOfTheWeek():
         name = item.find("div", {"class": "name"}).find("span").text
         results.append(f"{index}. {name}")
     return results
-
-results = publisherOfTheWeek()
-print(results)
