@@ -1,0 +1,5 @@
+pip install beautifulsoup4
+pip install requests
+pip install unidecode
+pip install python-dotenv
+pip install python-telegram-bot
