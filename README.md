@@ -35,7 +35,7 @@ Bu kütüphaneler, veri çekme işlemleri için Beautiful Soup ve Requests küt�
 
 1. Telegram botunu kullanmak için öncelikle Telegram üzerinden oluşturduğunuz botun token bilgisini almalısınız.
 
-2. Botun çalışabilmesi için projedeki kütüphaneleri yüklemelisiniz. Kütüphaneleri yüklemek için aşağıdaki komutları kullanabilirsiniz:
+2. Botun çalışabilmesi için projedeki kütüphaneleri yüklemelisiniz. Kütüphaneleri yüklemek için aşağıdaki komutları kullanabilirsiniz ya da `pip install requirements.txt` yazarak indire bilirsiniz:
 ```
 pip install beautifulsoup4
 pip install requests
